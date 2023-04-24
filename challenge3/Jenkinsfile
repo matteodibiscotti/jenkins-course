@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     parameters {
-        string(defaultValue: "TEST", description: "What is the deployment name?", name: "deploymentName")
-        choice(choices: ["EU-WEST-2A", "EU-WEST-2A", "EU-WEST-2A"], description: "Which AZ to deploy to", name: "deployAZ")
+        string(defaultValue: "", description: "What is the deployment name?", name: "deploymentName")
+        choice(choices: ["EU-WEST-2A", "EU-WEST-2B", "EU-WEST-2C"], description: "Which AZ to deploy to", name: "deployAZ")
         booleanParam(defaultValue: false, description: "Proceed to deploy?", name: "confirmDeployment")
     }
 
