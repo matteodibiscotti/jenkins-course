@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage("clean up"){
+            steps {
+                deleteDir()
+            }
+        }
+        stage("clone repo"){
+            steps{
+                sh "git clone https://github.com/jenkins-docs/simple-java-maven-app.git"
+            }
+        }
+        stage("buildRemote"){
+            steps{
+                build job: "boolPipeline", parameters: [[$class: 'BooleanParameterValue', name: 'myBoolean', value: true]]
+            }
+        }
+    }
+}
